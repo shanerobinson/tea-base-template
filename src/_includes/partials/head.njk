@@ -1,0 +1,34 @@
+{# set absolutePageURL to use later in  canonical and og URLs #}
+{%- set absolutePageUrl -%}{{ page.url | url | absoluteUrl(build.url) }}{%- endset -%}
+{# set image paths here so user/editor doesn't have to deal with full paths #}
+{%- set ogImage -%}
+{% if seo.image %}
+  /assets/images/{{ seo.image }}
+{% else %}
+  {{ meta.image }}
+{% endif %}
+{%- endset -%}
+{#- General #}
+<meta name="author" content="{{ author or meta.author }}">
+<meta name="description" content="{{ seo.description or meta.description }}">
+<link rel="canonical" href="{{ absolutePageUrl }}">
+{#- Open Graph #}
+<meta property="og:site_name" content="{{ meta.title }}">
+<meta property="og:title" content="{{ seo.title or title }} | {{ meta.title }}">
+<meta property="og:description" content="{{ seo.description or meta.description }}">
+<meta property="og:url" content="{{ absolutePageUrl }}">
+<meta property="og:locale" content="{{ meta.locale }}">
+<meta property="og:image" content="{{ ogImage | url | absoluteUrl(build.url) }}">
+{#- Twitter Card #}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="{{ meta.twitterSite }}">
+<meta name="twitter:creator" content="{{ meta.twitterCreator }}">
+<meta name="twitter:title" content="{{ seo.title or title }} | {{ meta.title }}">
+<meta name="twitter:description" content="{{ seo.description or meta.description }}">
+<meta name="twitter:image" content="{{ ogImage | url | absoluteUrl(build.url) }}">
+{#- Favicon #}
+<link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/favicon/apple-touch-icon.png' | url }}">
+<link rel="icon" type="image/png" href="{{ '/assets/images/favicon/favicon-32x32.png' | url }}" sizes="32x32">
+<link rel="icon" type="image/png" href="{{ '/assets/images/favicon/favicon-16x16.png' | url }}" sizes="16x16">
+{#- RSS Feed #}
+{#- <link type="application/atom+xml" rel="alternate" href="{{ build.url }}/feed.xml" title="{{ meta.title }}"> #}

@@ -1,0 +1,13 @@
+{
+	"logoSVG": "text-gray-600",
+	"logoSVGMobile": "text-gray-600",
+	"logoHover": "text-gray-500",
+	"navLinks": "text-gray-500",
+	"navBorders": "border-gray-500",
+	"navMobileText": "text-gray-600",
+	"navMobileBg": "bg-gray-50",
+	"headers": "### Set Headers (H1, H2..) in /src/assets/css/tailwind.css.",
+	"footerText": "text-gray-500",
+	"socialIcons": "text-gray-500",
+	"socialIconsHover": "text-gray-400"
+}

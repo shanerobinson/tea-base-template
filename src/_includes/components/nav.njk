@@ -1,0 +1,64 @@
+{% set navPages = collections.pages | eleventyNavigation %}
+<nav x-data="{ open: false }" class="bg-white shadow">
+  <div class="px-2 max-w-7xl sm:px-16 md:px-16 lg:px-28">
+    <div class="flex justify-between h-16">
+      <div class="flex">
+        <div class="flex items-center flex-shrink-0">
+          <!-- small logo hidden on md and above -->
+          <a href="/" aria-label="mobile logo link to home" class="block md:hidden {{ colors.logoSVGMobile | default('text-gray-700') }} hover:{{ colors.logoHover | default('text-gray-600') }}">
+            <span class="">
+              {% svg "icon-mobile", "100DaysOfCode", " inline mx-2 h-12 w-12 fill-current" %}
+            </span>
+            {# svg "logo_mobile",   "The Mobile Logo",   "fill-current w-16 hover:text-indigo-500" #}
+          </a>
+          <!-- large logo hidden on small, block on md -->
+          <a href="/" aria-label="desktop logo link to home" class="hidden md:block {{ colors.logoSVG | default('text-gray-700') }} hover:{{ colors.logoHover | default('text-gray-600') }}">
+            {% svg "icon", "100DaysOfCode", "align-middle mb-2 inline mx-2 h-8 w-8 fill-current" %}
+            <span class="text-2xl font-bold ">
+            Shane Robinson: #100DaysOfCode
+          </span>
+            {# svg "logo",   "The Logo",   "fill-current h-8 hover:text-indigo-500" #}
+          </a>
+        </div>
+        <div class="hidden sm:ml-6 sm:flex">
+          <!-- 11ty Nav Plugin loop  -->
+          {% for entry in navPages %}
+            <a href="{{ entry.url | url }}" aria-label="{{ entry.title }}" class="ml-8 inline-flex items-center px-1 pt-1 border-b-2 {% if page.url == entry.url %}{{ colors.navBorders | default('border-gray-700', true) }}{% else %}border-transparent{% endif %} text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+              {{ entry.title }}
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Right side of Navbar -->
+      <!--  -->
+
+      <!-- MOBILE MENU -->
+      <div class="flex items-center -mr-2 sm:hidden">
+        <!-- Mobile menu button -->
+        <button @click="open = !open" class="inline-flex items-center justify-center p-2 text-gray-400 transition duration-150 ease-in-out rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500" x-bind:aria-label="open ? 'Close main menu' : 'Main menu'" aria-label="Main menu" x-bind:aria-expanded="open">
+          <!-- Icon when menu is closed. -->
+          <svg x-state:on="Menu open" x-state:off="Menu closed" :class="{ 'hidden': open, 'block': !open }" class="block w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <!-- Icon when menu is open. -->
+          <svg x-state:on="Menu open" x-state:off="Menu closed" :class="{ 'hidden': !open, 'block': open }" class="hidden w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div x-description="Mobile menu, toggle classes based on menu state." x-state:on="Menu open" x-state:off="Menu closed" :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
+    <div class="pt-2 pb-3">
+      <!-- 11ty Nav Plugin loop  -->
+      {% for entry in navPages %}
+        <a href="{{ entry.url | url }}" class="block pl-3 pr-4 py-2 border-l-4 {% if page.url == entry.url %}{{ colors.navBorders | default('border-gray-700', true) }} {{ colors.navMobileBg | default('bg-gray-100', true) }} {{ colors.navMobileText | default('text-gray-700', true) }}{% else %}border-transparent{% endif %} text-base font-medium hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-indigo-800 focus:bg-indigo-100 focus:border-indigo-700 transition duration-150 ease-in-out">
+          {{ entry.title }}
+        </a>
+      {% endfor %}
+    </div>
+
+  </div>
+</nav>

@@ -1,0 +1,21 @@
+{% set postAuthor = post.data.author | default(meta.author, true) %}
+
+<section>
+  {% for post in postslist | reverse %}
+    <article{% if post.url == url %} data-current="current item"{% endif %} class="mb-8">
+      <div>
+        <a href="{{ post.url | url }}">
+          {{ post.data.title }}
+        </a>
+      </div>
+      <div class="text-sm">
+        {{ post.data.excerpt }}
+      </div>
+      <div class="text-sm italic">
+        <time datetime="{{ post.date | machineDate }}">
+          {{ post.date | readableDate }} by <a href="/authors/{{ postAuthor | slug }}/">{{ postAuthor }}</a>
+        </time>
+      </div>
+    </article>
+  {% endfor %}
+</section>
