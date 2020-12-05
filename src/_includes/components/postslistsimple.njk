@@ -12,8 +12,8 @@
         {{ post.data.excerpt }}
       </div>
       <div class="text-sm italic">
-        <time datetime="{{ post.date | machineDate }}">
-          {{ post.date | readableDate }} by <a href="/authors/{{ postAuthor | slug }}/">{{ postAuthor }}</a>
+        <time datetime="{{ post.date | dateToFormat("yyyy-MM-dd") }}">
+          {{ post.date | dateToFormat("dd LLL yyyy") }} by <a href="/authors/{{ postAuthor | slug }}/">{{ postAuthor }}</a>
         </time>
       </div>
     </article>

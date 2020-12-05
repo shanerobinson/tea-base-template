@@ -14,25 +14,11 @@ tags: post
   <h1>{{ title }}</h1>
   <p>
     <small>
-      <time datetime="{{ date | machineDate }}">
-        {{ date | readableDate }}
+      <time datetime="{{ date | dateToFormat("yyyy-MM-dd") }}">
+        {{ date | dateToFormat("dd LLL yyyy") }}
       </time> by <a href="/authors/{{ postAuthor | slug }}/">{{ postAuthor }}</a>
     </small>
   </p>
 
   {{ layoutContent | safe }}
-
-  {#
-  {% if tags %}
-  Tagged:
-    <span>
-    {% for tag in tags %}
-      {%- if tag != "post" -%}
-        {% set tagUrl %}/tags/{{ tag }}/{% endset %}
-        <a href="{{ tagUrl | url }}" rel="tag">{{ tag }}</a>{{ "," if not loop.last }}
-      {%- endif -%}
-    {% endfor %}
-    </span>
-  {% endif %}
-  #}
 </article>

@@ -1,7 +1,6 @@
 const pluginRss         = require('@11ty/eleventy-plugin-rss')
 const pluginNavigation  = require('@11ty/eleventy-navigation')
 const syntaxHighlight   = require('@11ty/eleventy-plugin-syntaxhighlight')
-const svgContents       = require("eleventy-plugin-svg-contents")
 
 
 const filters           = require('./utils/filters.js')
@@ -18,7 +17,6 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(pluginRss)
 	eleventyConfig.addPlugin(pluginNavigation)
   eleventyConfig.addPlugin(syntaxHighlight)
-  eleventyConfig.addPlugin(svgContents);
 
 
 
@@ -47,7 +45,24 @@ module.exports = function (eleventyConfig) {
 			shortcodeName,
 			pairedshortcodes[shortcodeName]
 		)
+  })
+  
+ 	/**
+	 * Collections
+	 * ============================
+	 *
+	 * POST Collection set so we can check status of "draft:" frontmatter.
+	 * If set "true" then post will NOT be processed in PRODUCTION env.
+	 * If "false" or NULL it will be published in PRODUCTION.
+	 * Every Post will ALWAYS be published in DEVELOPMENT so you can preview locally.
+	 */
+	eleventyConfig.addCollection('post', (collection) => {
+		if (process.env.ELEVENTY_ENV !== 'production')
+			return [...collection.getFilteredByGlob('./src/posts/*.md')]
+		else
+			return [...collection.getFilteredByGlob('./src/posts/*.md')].filter((post) => !post.data.draft)
 	})
+
 
 
   
