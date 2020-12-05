@@ -1,4 +1,4 @@
-# tea-base-template _(previously "test-repo")_
+# tea-base-template
 
 This started out to be a most minimal TEAstack _(TailwindCSS, 11ty, AlpineJS)_ base template for testing and tutotials.
 
@@ -6,13 +6,14 @@ But it evolved into a more complicated, but also more refined, version of my #10
 
 Not everything is currently working that works in that project. But enough is working that this is a fully functional blog system and more than enough to get you started on your own #100DaysOfCode deployment and publishing.
 
-## Step 1. Updating _(Pull)_
+## Step 1. Clone It!
 
-1. `cd` into your local **"test-repo"** directory.
-2. `code .` will launch VSCode in that directory.
-3. Click the **Sync Changes** button to Pull the latest version.
-
-![sync changes](_sync.png)
+1. Click the **"Code"** button above, then click the clipboard icon to copy the repo URL
+2. `cd` into your local **"Sites"** directory.
+3. `git clone ` and immediately paste the repo URL you copied.
+4. Hit **[RETURN]** key
+5. The repo will be cloned to your **"Sites"** dir.
+6. `cd tea-base-template`
 
 ## Step 2. Install
 
@@ -21,7 +22,8 @@ Not everything is currently working that works in that project. But enough is wo
 
 ![npmrundev](_npmrundev.png)
 
-3. You use `control c` to stop the dev server.
+3. _You use `control c` to stop the dev server._
+4. `code .` will launch VSCode in that directory, ready to get to work!
 
 ## Step 3. Browse Local Dev Site
 
@@ -45,7 +47,7 @@ The site files live in the `/src` directory.
 11ty can use **Data** files to provide almost unlimited functionalities. One of the uses is to manage site-wide content.
 
 1. In VSCode, open `/src/_data/meta.json` and you'll find some basic global site content. **META Content**.
-2. Make changes, making sure to watch out for double quites and commas, and you'll see those changes immediately _(if you're still running the dev server.)_
+2. Make changes, making sure to watch out for double quotes and commas, and you'll see those changes immediately _(if you're still running the dev server.)_
 3. Take a look in the `/src/_data/social.json` file to see how the social icons in the footer are controled. Add your own information there. And if you don't have an account on a platform, just delete the URL value. When you save the file the icons in the footer will automatically update.
 
 ## Step 6. Create New Posts
@@ -59,10 +61,10 @@ You have some posts sitting in your Notes.app. This is just a testing project so
 ## Step 7. Change About Page
 
 1. In VSCode open `/src/pages/about.md` and change the content below the frontmatter to whatever you want.
-2. If you don't want an **About Page** you can just delete it.
+2. If you don't want an **About Page** you can just delete the file.
 
 ## Step 8. Post Questions in Issues
 
-Post any questions you have in the repo Issues. When you feel comfortable working on this test project, I'll provide instructions on how to clone it to a new repo. That new repo will be your REAL #100Days site. And it Netlify you'll point your current site setting there to your new repo. It will be great practice and experience for you to know how to do that. Will also be good experience to delete junk repos on your Github and also delete the local repos.
+Post any questions you have in the repo Issues. When you feel comfortable working on this test project, I'll provide instructions on how to clone it to a new repo. That new repo will be your REAL #100Days site. And at Netlify you'll point your current site setting to your new repo. It will be great practice and experience for you to know how to do that. Will also be good experience to delete junk repos on your Github and also delete the local repos.
 
 ## Good Luck!!

@@ -1,7 +1,7 @@
 {
   "name": "tea-base-template",
   "version": "1.0.0",
-  "description": "The most minimal TEAstack (TailwindCSS, 11ty, AlpineJS) for testing and tutorials",
+  "description": "A minimal TEAstack (TailwindCSS, 11ty, AlpineJS) for testing and tutorials",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shanerobinson/tea-base-template.git"
