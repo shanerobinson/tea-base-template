@@ -1,10 +1,42 @@
-{
-  "dribbble":   "",
-  "facebook":   "",
-  "github":     "https://github.com/shanerobinson/sr-100daysofcode",
-  "instagram":  "https://www.instagram.com/shanerobinson",
-  "linkedin":   "http://www.linkedin.com/in/rshanerobinson",
-  "pinterest":  "https://www.pinterest.com/shanerobinson",
-  "twitter":    "https://www.twitter.com/shanerobinson",
-  "youtube":    ""
-}
+[
+	{
+		"platform": "### Comment: Make sure to add SVG icon in /assets/svg with same name as 'platform' ###",
+		"url": ""
+	},
+	{
+		"platform": "dribbble",
+		"url": ""
+	},
+	{
+		"platform": "github",
+		"url": "https://www.github.com/shanerobinson"
+	},
+	{
+		"platform": "instagram",
+    "url": "https://www.instagram.com/shanerobinson"
+	},
+	{
+		"platform": "linkedin",
+		"url": "https://www.linkedin.com/in/rshanerobinson"
+	},
+	{
+		"platform": "piedpiper",
+		"url": "https://www.piedpiper.com/shanerobinson"
+	},
+	{
+		"platform": "pinterest",
+		"url": "https://www.pinterest.com/shanerobinson"
+	},
+	{
+		"platform": "rss",
+		"url": "/feed.xml"
+	},
+	{
+		"platform": "twitter",
+		"url": "https://www.twitter.com/shanerobinson"
+	},
+	{
+		"platform": "youtube",
+		"url": ""
+	}
+]

@@ -1,0 +1,38 @@
+---
+layout: layouts/base.njk
+tags: post
+---
+{% set postAuthor = author | default(meta.author, true) %}
+
+{% if images.feature %}
+  <figure class="w-screen h-48 -mx-12 -mt-12 sm:h-64 lg:h-96 sm:-mx-20 lg:-mx-32 ">
+    <img class="object-cover w-full h-full" src="/assets/images/{{ images.feature }}" alt="">
+  </figure>
+{% endif %}
+
+<article class="mt-12">
+  <h1>{{ title }}</h1>
+  <p>
+    <small>
+      <time datetime="{{ date | machineDate }}">
+        {{ date | readableDate }}
+      </time> by <a href="/authors/{{ postAuthor | slug }}/">{{ postAuthor }}</a>
+    </small>
+  </p>
+
+  {{ layoutContent | safe }}
+
+  {#
+  {% if tags %}
+  Tagged:
+    <span>
+    {% for tag in tags %}
+      {%- if tag != "post" -%}
+        {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+        <a href="{{ tagUrl | url }}" rel="tag">{{ tag }}</a>{{ "," if not loop.last }}
+      {%- endif -%}
+    {% endfor %}
+    </span>
+  {% endif %}
+  #}
+</article>

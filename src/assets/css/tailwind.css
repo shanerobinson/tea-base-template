@@ -1,57 +1,38 @@
 @tailwind base;
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	@apply font-semibold text-gray-700;
-}
-h1 {
-	@apply text-4xl;
-}
-h2 {
-	@apply pt-12 text-3xl;
-}
-h3 {
-	@apply text-2xl;
-}
-h4 {
-	@apply text-xl;
-}
-h5 {
-	@apply text-lg;
-}
-p a,
-li a,
-blockquote a,
-dd a {
-	@apply font-medium text-indigo-700;
-}
-p {
-	@apply mt-4;
-}
-.wrapper > p:first-of-type {
-	@apply p-0 m-0;
-}
-
-ol {
-	@apply pt-4 ml-8 list-decimal;
-}
-ul {
-	@apply pt-4 ml-8 list-disc;
-}
-blockquote {
-	@apply pl-4 m-4 border-l-4 border-gray-500;
-}
-code {
-	@apply p-1 text-sm bg-gray-200 border border-gray-300 rounded-lg;
-}
-pre code {
-	@apply bg-transparent border-0 rounded-none;
-}
-
 @tailwind components;
+
+/* 
+  Prose makes too many assumptions on what we want in heading and image margins.
+  So have to override them here because won't override at the page element.
+  Also, have to put it here under Components as it wont work under base.
+*/
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.heading {
+	@apply text-gray-700;
+}
+
+/* 
+  Reset top & bottom margins for specific, classed Headings.
+  This will override margin top & bottom at the Page elements.
+  So can use padding top & bottom as needed at the Page element.   
+*/
+.prose h3.heading {
+	@apply my-0;
+}
+
+.prose img.card,
+.prose img.feature,
+.prose figure.feature {
+	@apply my-0;
+}
+
+.prose .wrapper p {
+	@apply my-0;
+}
 
 @tailwind utilities;

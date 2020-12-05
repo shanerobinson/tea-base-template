@@ -1,60 +1,33 @@
 <footer>
   <div class="bg-white border-t border-gray-200">
     <div class="max-w-5xl px-4 pt-4 pb-12 sm:px-20 md:flex md:items-center md:justify-between lg:px-32">
-      <div class="flex justify-center md:order-2 {{ colors.socialIcons | default('text-gray-400') }}">
+      <div class="flex justify-center md:order-2">
 
-        {% if social.dribbble %}
-          <a class="hover:{{ colors.socialIconsHover | default('text-gray-500') }}" aria-label="{{ meta.author }} on Dribbble" href="{{ social.dribbble | url }}">
-            {% svg "dribbble", "Dribbble logo", "mx-2 h-6 w-6 fill-current" %}
+      {# Display Social icons from \_data/social.json #}
+      {% for site in social %}
+        {% if site.url %}
+        {% set platform = ['svg/', site.platform, '.njk'] %}
+          <a aria-label="Link to {{ site.platform }}" alt="Link to {{ site.platform }}" class="mx-2 w-6 h-6 {{ colors.socialIcons }} hover:{{ colors.socialIconsHover }}" href="{{ site.url | url }}">
+            {% include platform | join %}
           </a>
         {% endif %}
-
-        {% if social.facebook %}
-          <a class="hover:{{ colors.socialIconsHover | default('text-gray-500') }}" aria-label="{{ meta.author }} on Facebook" href="{{ social.facebook | url }}">
-            {% svg "facebook", "Facebook logo", "mx-2 h-6 w-6 fill-current" %}
-          </a>
-        {% endif %}
-
-        {% if social.github %}
-          <a class="hover:{{ colors.socialIconsHover | default('text-gray-500') }}" aria-label="{{ meta.author }} on GitHub" alt="github" href="{{ social.github | url }}">
-            {% svg "github", "Github logo", "mx-2 h-6 w-6 fill-current" %}
-          </a>
-        {% endif %}
-
-        {% if social.instagram %}
-          <a class="hover:{{ colors.socialIconsHover | default('text-gray-500') }}" aria-label="{{ meta.author }} on Instagram" href="{{ social.instagram | url }}">
-            {% svg "instagram", "Instagram logo", "mx-2 h-6 w-6 fill-current" %}
-          </a>
-        {% endif %}
-
-        {% if social.pinterest %}
-          <a class="hover:{{ colors.socialIconsHover | default('text-gray-500') }}" aria-label="{{ meta.author }} on Pinterest" href="{{ social.pinterest | url }}">
-            {% svg "pinterest", "Pinterest logo", "mx-2 h-6 w-6 fill-current" %}
-          </a>
-        {% endif %}
-
-        {% if social.twitter %}
-          <a class="hover:{{ colors.socialIconsHover | default('text-gray-500') }}" aria-label="{{ meta.author }} on Twitter" href="{{ social.twitter | url }}">
-            {% svg "twitter", "Twitter logo", "mx-2 h-6 w-6 fill-current" %}
-          </a>
-        {% endif %}
-
-        {% if social.youtube %}
-          <a class="hover:{{ colors.socialIconsHover | default('text-gray-500') }}" aria-label="{{ meta.author }} on YouTube" href="{{ social.youtube | url }}">
-            {% svg "youtube", "Youtube logo", "mx-2 h-6 w-6 fill-current" %}
-          </a>
-        {% endif %}
+      {% endfor %}
 
       </div>
       <div class="text-sm leading-6 {{ colors.footerText | default('text-gray-400') }} mt-8 md:mt-0 md:order-1">
         <p>
-          &copy; {{ meta.title }}
-          {{ build.timestamp | dateToFormat('yyyy') }}
+          &copy; {{ build.year }}, {{ meta.title }}
         </p>
         <p>
-Enthusiastically built with <a class="underline" target="_blank" href="https://11ty.dev" alt="11ty Static Site Generator">11ty</a>, <a class="underline" target="_blank" href="https://tailwindcss.com" alt="TailwindCSS Utility-First CSS Framework">TailwindCSS</a>, <a class="underline" target="_blank" href="https://github.com/alpinejs/alpine" alt="Alpine.js : Think of it like Tailwind for JavaScript">Alpine.js</a>, and hosted at <a class="underline" target="_blank" href="https://netlify.com" alt="Netflify - Server Less, Do More">Netlify.</a>
+          Enthusiastically built with 
+          <a class="underline" target="_blank" href="https://11ty.dev" alt="11ty Static Site Generator">11ty</a>, 
+          <a class="underline" target="_blank" href="https://tailwindcss.com" alt="TailwindCSS Utility-First CSS Framework">TailwindCSS</a>, 
+          <a class="underline" target="_blank" href="https://github.com/alpinejs/alpine" alt="Alpine.js : Think of it like Tailwind for JavaScript">Alpine.js</a>, 
+          and hosted at <a class="underline" target="_blank" href="https://netlify.com" alt="Netflify - Server Less, Do More">Netlify.</a>
         </p>
+        
       </div>
     </div>
   </div>
 </footer>
+

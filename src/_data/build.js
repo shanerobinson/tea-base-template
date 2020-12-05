@@ -1,4 +1,6 @@
 require('dotenv').config()
+const { DateTime } = require('luxon')
+
 
 /**
  * Setup a current env and timestamp with timezone support 
@@ -9,4 +11,5 @@ module.exports = {
   timestamp: new Date(),
   timezone: process.env.TIMEZONE || 'UTC',
   url: process.env.URL || 'http://localhost:8080',
+  year: DateTime.local().year,
 }

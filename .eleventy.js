@@ -1,9 +1,12 @@
 const pluginRss         = require('@11ty/eleventy-plugin-rss')
 const pluginNavigation  = require('@11ty/eleventy-navigation')
 const syntaxHighlight   = require('@11ty/eleventy-plugin-syntaxhighlight')
+const svgContents       = require("eleventy-plugin-svg-contents")
+
 
 const filters           = require('./utils/filters.js')
-const shortcodes        = require('./utils/shortcodes')
+const shortcodes        = require('./utils/shortcodes.js')
+const pairedshortcodes  = require('./utils/paired-shortcodes.js')
 
 
 module.exports = function (eleventyConfig) {
@@ -14,7 +17,9 @@ module.exports = function (eleventyConfig) {
 	 */
 	eleventyConfig.addPlugin(pluginRss)
 	eleventyConfig.addPlugin(pluginNavigation)
-	eleventyConfig.addPlugin(syntaxHighlight)
+  eleventyConfig.addPlugin(syntaxHighlight)
+  eleventyConfig.addPlugin(svgContents);
+
 
 
   /**
@@ -24,6 +29,26 @@ module.exports = function (eleventyConfig) {
   Object.keys(filters).forEach((filterName) => {
     eleventyConfig.addFilter(filterName, filters[filterName])
   })
+
+ 	/**
+	 * Shortcodes
+	 * @link https://www.11ty.io/docs/shortcodes/
+	 */
+	Object.keys(shortcodes).forEach((shortcodeName) => {
+		eleventyConfig.addShortcode(shortcodeName, shortcodes[shortcodeName])
+  })
+  
+ 	/**
+	 * Paired Shortcodes
+	 * @link https://www.11ty.dev/docs/languages/nunjucks/#paired-shortcode
+	 */
+	Object.keys(pairedshortcodes).forEach((shortcodeName) => {
+		eleventyConfig.addPairedShortcode(
+			shortcodeName,
+			pairedshortcodes[shortcodeName]
+		)
+	})
+
 
   
 	/**
