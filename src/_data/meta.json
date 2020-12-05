@@ -2,10 +2,9 @@
 	"title": "Shane Robinson : #100DaysOfCode",
 	"description": "Follow Shane Robinson as he migrates slow, bloated, and insecure Wordpress websites to the amazing static site generator 11ty.",
 	"author": "Shane Robinson",
-	"image": "/assets/images/meta/og.jpg",
+	"image": "/assets/images/meta/default.png",
 	"lang": "en",
 	"locale": "en_us",
 	"twitterSite": "@shanerobinson",
-  "twitterCreator": "@shanerobinson",
-  "ig": "instagram"
+  "twitterCreator": "@shanerobinson"
 }

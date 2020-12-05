@@ -5,7 +5,7 @@ layout: layouts/page.njk
 eleventyNavigation:
   key: main
   title: About # as it will appear in the nav
-  order: 2 # order to display in the nav
+  order: 3 # order to display in the nav
 seo:
   title: About Us # overrides 'title' above on both Page and META
   description:

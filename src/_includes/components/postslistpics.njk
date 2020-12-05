@@ -19,7 +19,7 @@
             <a href="{{ post.url | url }}">{{ post.data.title }}</a>
           </h3>
           <time datetime="{{ post.date | dateToFormat("yyyy-MM-dd") }}">
-            <small>{{ post.date | dateToFormat("dd LLL yyyy") }} by <a href="/authors/{{ postAuthor | slug }}/">{{ postAuthor }}</a>
+            <small>{{ post.date | dateToFormat("dd LLL yyyy") }} by {{ postAuthor }}
             </small>
           </time>
           <p class="text-base leading-relaxed">

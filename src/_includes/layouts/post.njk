@@ -16,7 +16,7 @@ tags: post
     <small>
       <time datetime="{{ date | dateToFormat("yyyy-MM-dd") }}">
         {{ date | dateToFormat("dd LLL yyyy") }}
-      </time> by <a href="/authors/{{ postAuthor | slug }}/">{{ postAuthor }}</a>
+      </time> by {{ postAuthor }}
     </small>
   </p>
 

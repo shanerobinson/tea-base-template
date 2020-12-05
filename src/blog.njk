@@ -1,73 +1,23 @@
 ---
-title: Blog
+title: The Days
 date: 2020-08-05
-description: The Posts List display is controled in /src/_data/structure.js and ships with 4 options.
 layout: layouts/page.njk
 eleventyNavigation:
   key: main
-  title: Blog #  as it will appear in the nav
-  order: 3    # order to display in the nav
+  title: Days # as it will appear in the nav
+  order: 2    # order to display in the nav
 seo:
-  title: From the blog...
-  description: 
-pagination:
-  data: collections.post 
-  size: 12
-  reverse: true
-  alias: posts
+  title: The Days
+  description: Daily posts from my 100DaysOfCode project.
 ---
 
-<h2 class="mt-6">Setting Posts Lists Display</h2>
-
-<p>
-The Posts List display below is controled in <code>/src/_data/structure.js</code> and ships with 4 Component options by default in the <strong>postListStyle</strong> setting. Full instructions are in the comments in <code>/src/_data/structure.js:90</code>.
-</p>
-
-<p>
-Currently setting = <code>postListStyle: <em>{{ structure.postListStyle }}</em>
-  </code>
-</p>
-
-<p>
-Defaults are:
-<ol>
-    <li>
-      <strong>postslist</strong> = Just text links with Title, Date/Author, Excerpt</li>
-    <li>
-      <strong>postslistblocks</strong> = Block-style Grid with Title, Date/Author Image, Tag Pills, Excerpt</li>
-    <li>
-      <strong>postslistthumbs</strong> = Block-style Grid with Post Thumbnail, Title, Date/Author, Tag Pills, Excerpt</li>
-    <li>
-      <strong>postslistcards</strong> = Cards with Border, Dropshadow, Post Thumbnail, Title, Date/Author Image, Excerpt</li>
-  </ol>
-</p>
-
-<p>You can find these components in <code>/src/_includes/components/</code> and easily modify them or add your own by duplicating them to use as base for modifications.</p>
-<hr class="mt-8">
-
-<h2 class="mt-6">Pagination</h2>
-<p>
-Pagination is built in and currently set to display <code>{{ pagination.size }}</code> entries. <br>
-Pagination will NOT display if there are fewer entries than set in the frontmater, <code>pagination.size</code>. 
-</p>
-
-<p>
-This template = <code>/src/blog.njk</code>.
-</p>
-
-<hr class="mt-8">
-
-{% set postslist = posts | reverse %}
+{% set postslist = collections.post %}
 
 {# 
-  Allows a user to easily change the Tag List Style.
-  Please see instructions in /src/_data/structure.js >>> ===== Post List Style Options =====
+  Allows a user to easily change the Post List Style.
+  Change the 'postListStyle' value in /_data/structure.json.
+  NOTE: Can make this a select in the CMS?
 #}
 {% set postlist = ['components/', structure.postListStyle, '.njk'] %}
 {% include postlist | join %}
 
-{# ===== Paginate based on "size" frontmatter value above =====  #}
-{# Don't even include the pagination component if there are fewer posts than needed to paginate  #}
-{% if collections.post.length > pagination.size %}
-  {% include "components/pagination.njk" %}
-{% endif %}
