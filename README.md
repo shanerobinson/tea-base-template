@@ -1,5 +1,7 @@
 # tea-base-template
 
+demo site: [teastack.netlify.app](https://teastack.netlify.app/)
+
 This started out to be a most minimal TEAstack _(TailwindCSS, 11ty, AlpineJS)_ base template for testing and tutotials.
 
 But it evolved into a more complicated, but also more refined, version of my #100DaysOfCode template.
