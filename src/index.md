@@ -10,14 +10,11 @@ seo: #uncomment 'seo' and then any elements to use them
   description: Follow along to learn how to build fast, secure, beautiful static websites using 11ty and TailwindCSS.
 ---
 
-**Welcome to my #100DaysOfCode project website.**
+**This is a TEAstack _(TailwindCSS, 11ty, Alpine.js)_ small site/blog template.**
 
-> NOTE: This site will be in constant flux and changing during the 100 days of this project.
-> [Clone this project and make your own site!](https://github.com/shanerobinson/sr-100daysofcode)
+I created this template mostly
+as an exercise in daily documentation and as a base template from which to quickly spin up new projects.
 
-I created this mostly
-as an exercise in daily documentation and social interaction. The project
-management part is generally easy as we've been managing clients and projects in
-our company, [Bare Feet Studios, LLC](https://www.barefeetstudios.com) since 1996.
+Follow the instructions in the [repo README](https://github.com/shanerobinson/tea-base-template) and you should have a local site running in a couple minutes...assuming you know what all this is. 😃
 
 ---

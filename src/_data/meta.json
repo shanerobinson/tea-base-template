@@ -1,6 +1,6 @@
 {
-	"title": "Shane Robinson : #100DaysOfCode",
-	"description": "Follow Shane Robinson as he migrates slow, bloated, and insecure Wordpress websites to the amazing static site generator 11ty.",
+	"title": "TEAstack Template",
+	"description": "Use this TEAstack (TailwindCSS, 11ty, Alpine.js) template to quickly spin up a small website project.",
 	"author": "Shane Robinson",
 	"image": "/assets/images/meta/default.png",
 	"lang": "en",
