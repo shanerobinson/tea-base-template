@@ -6,6 +6,10 @@ But it evolved into a more complicated, but also more refined, version of my #10
 
 Not everything is currently working that works in that project. But enough is working that this is a fully functional blog system and more than enough to get you started on your own #100DaysOfCode deployment and publishing.
 
+## NOTE: This uses [TailwindCSS Typography plugin](https://github.com/tailwindlabs/tailwindcss-typography)
+
+And while the plugin does a really nice job of setting attractive typography defaults, it really messes up image margins, padding, etc. IMHO... So much so that I find it impossible to use for a site containing image galleries, portfolios, etc. it's great if you're only publishing a text-based blog with a few inline images. If you want more control over your images, you'll probably need to completely remove the plugin from the `/tailwind.config.js` file and then reset your typography defaults in the `/src/assets/css/tailwind.css` file.
+
 ## Step 1. Clone It!
 
 1. Click the **"Code"** button above, then click the clipboard icon to copy the repo URL
