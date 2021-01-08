@@ -27,9 +27,9 @@
     "dev:postcss": "postcss src/assets/css/tailwind.css -o dist/assets/css/style.css --watch",
     "postcss": "postcss src/assets/css/tailwind.css -o out.css --watch",
     "dev": "run-p clean dev:* --print-label",
-    "build:eleventy": "cross-env ELEVENTY_ENV=production eleventy",
-    "build:postcss": "cross-env NODE_ENV=production postcss src/assets/css/tailwind.css -o dist/assets/css/style.css",
-    "build": "run-s clean build:*  --print-label",
+    "build:eleventy": "eleventy",
+    "build:postcss": " postcss src/assets/css/tailwind.css -o dist/assets/css/style.css",
+    "build": "NODE_ENV=production ELEVENTY_ENV=production run-s clean build:*  --print-label",
     "local": "run-s build build:* && http-server ./dist -p 8081 --print-label"
   },
   "dependencies": {
@@ -38,16 +38,13 @@
     "@11ty/eleventy-plugin-rss": "^1.0.9",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.4",
     "@tailwindcss/typography": "^0.3.1",
-    "autoprefixer": "^10.1.0",
+    "autoprefixer": "^10.2.1",
     "clean-css": "^4.2.3",
-    "cross-env": "^7.0.3",
     "cssnano": "^4.1.10",
-    "dotenv": "^8.2.0",
     "http-server": "^0.12.3",
     "npm-run-all": "^4.1.5",
     "postcss-cli": "^8.3.1",
     "rimraf": "^3.0.2",
-    "slugify": "^1.4.6",
     "tailwindcss": "^2.0.2"
   },
   "devDependencies": {}

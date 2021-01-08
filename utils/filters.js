@@ -1,6 +1,5 @@
 const CleanCSS = require('clean-css')
 const { DateTime } = require('luxon')
-const slugify = require('slugify')
 
 
 module.exports = {
@@ -32,20 +31,5 @@ module.exports = {
     return new CleanCSS({}).minify(code).styles
 	},
   
-  
-  /**
-   * Universal slug filter strips unsafe chars from URLs
-   */
-	slugify: (string) => {
-		return slugify(string, {
-			lower: true,
-			replacement: '-',
-			remove: /[*+~.·,()'"`´%!?¿:@]/g,
-		})
-	},
-
-
-
-
 
 }
