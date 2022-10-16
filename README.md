@@ -1,5 +1,12 @@
 # tea-base-template
 
+**UPDATE 221016 -> v2:**
+
+- Completely refactored and upldated to latest versions of 11ty and Tailwind.
+- Removed POST CSS, CSS Nano, Clean CSS, etc.
+
+---
+
 demo site: [teastack.netlify.app](https://teastack.netlify.app/)
 
 This started out to be a most minimal TEAstack _(TailwindCSS, 11ty, AlpineJS)_ base template for testing and tutotials.

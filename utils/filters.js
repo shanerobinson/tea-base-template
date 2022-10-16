@@ -1,4 +1,6 @@
-const CleanCSS = require('clean-css')
+/**
+ * const CleanCSS = require('clean-css')
+*/
 const { DateTime } = require('luxon')
 
 
@@ -26,10 +28,9 @@ module.exports = {
 
   /**
    * Inline and Minify CSS in src/_includes/layouts/base.njk
-   */
-  cssmin: (code) => {
-    return new CleanCSS({}).minify(code).styles
-	},
-  
+   cssmin: (code) => {
+     return new CleanCSS({}).minify(code).styles
+    },    
+*/
 
 }
